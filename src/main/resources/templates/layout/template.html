@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org"
+    xmlns:layout="http://www.ultra.net.nz/thymeleaf/layout">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>index</title>
+    <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/assets/css/project.css">
+</head>
+
+<body>
+    <div class="container">
+        <th:block th:replace="layout/header :: header"></th:block>
+
+        <th:block layout:fragment="content"></th:block> <!--tiles를 했을 땐 컴포짓 했는데 메인부분은 해당파일을 제시하면 거기에 연관된 템플릿을 가져와서 구성한다?확장자 없이 가져다 쓸 수 있는 게 장점 -->
+
+            <th:block th:replace="layout/footer :: footer"></th:block>
+    </div>
+    <!--login_modal-->
+    <th:block th:replace="layout/login_modal :: login_modal"></th:block>
+
+
+<script src="/assets/js/bootstrap.bundle.min.js"></script>
+<script src="/assets/js/project.js"></script>
+</body>
+</html>
