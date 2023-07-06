@@ -13,9 +13,30 @@ public class JoinController {
     Logger logger = LogManager.getLogger(JoinController.class);
 
     @GetMapping("/agree")
-    public String list() {
+    public String agree() {
         logger.info("join/agree 호출!!");
 
         return "join/agree";
+    }
+
+    @GetMapping("/joinme")
+    public String joinme() {
+        logger.info("join/joinme 호출!!");
+
+        return "join/joinme";
+    }
+
+    @GetMapping("/checkme")
+    public String checkme() {
+        logger.info("join/checkme 호출!!");
+
+        return "join/checkme";
+    }
+
+    @GetMapping("/joinok")
+    public String joinok() {
+        logger.info("join/joinok 호출!!");
+
+        return "join/joinok";
     }
 }
