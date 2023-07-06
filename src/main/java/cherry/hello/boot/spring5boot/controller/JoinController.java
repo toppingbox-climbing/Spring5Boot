@@ -18,28 +18,28 @@ public class JoinController {
 
     @GetMapping("/agree")
     public String agree() {
-        logger.info("join/agree 호출!!");
+        logger.info("mybatis/mapper/agree 호출!!");
 
         return "join/agree";
     }
 
     @GetMapping("/joinme")
     public String joinme() {
-        logger.info("join/joinme 호출!!");
+        logger.info("mybatis/mapper/joinme 호출!!");
 
         return "join/joinme";
     }
 
     @GetMapping("/checkme")
     public String checkme() {
-        logger.info("join/checkme 호출!!");
+        logger.info("mybatis/mapper/checkme 호출!!");
 
         return "join/checkme";
     }
 
     @PostMapping("/checkme")
     public String checkmeok(Checkme checkme, HttpSession sess) {
-        logger.info("join/checkmeok 호출!!");
+        logger.info("mybatis/mapper/checkmeok 호출!!");
         // checkme에 보낸 개인정보를 세션에 저장하고
         // joinme로 이동
         String viewPage = "redirect:/join/checkme";
@@ -55,7 +55,7 @@ public class JoinController {
 
     @GetMapping("/joinok")
     public String joinok() {
-        logger.info("join/joinok 호출!!");
+        logger.info("mybatis/mapper/joinok 호출!!");
 
         return "join/joinok";
     }

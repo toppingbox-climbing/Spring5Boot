@@ -7,7 +7,7 @@ let noagree = document.querySelector("#noagree");
 okagree?.addEventListener('click', () => {
     if (!agree1.checked) alert('이용약관에 동의에 체크 하세요!🙄');
     else if (!agree2.checked) alert('개인정보 이용 동의에 체크하세요!');
-    else location.href = 'join/checkme';
+    else location.href = '../../mybatis/mapper/checkme';
 });
 noagree?.addEventListener('click', () => {
     location.href="/";
@@ -26,9 +26,6 @@ checkbtn2?.addEventListener('click',()=>{
       frm.submit();
     }
 });
-
 cancelbtn2?.addEventListener('click',()=>{
     location.href = '/';
 });
-
-

@@ -127,21 +127,19 @@
                             <li><span class="red">휴대폰 가입인증</span>을 하셔야 공개 게시판 이용이 가능합니다.</li>
                         </ul>
                     </div><!--info message-->
-
                 </div><!--info-->
 
                 <div class="row">
                     <div class="col text-center">
                     <hr class="w-75 mx-auto">
-                    <button type="button" id="checkbtn2" class="btn btn-primary">
+                    <button type="button" id="checkbtn1" class="btn btn-primary">
                         <i class="fa-regular fa-circle-check"></i> 확인하기</button>
-                        <button type="button" id="cancelbtn2" class="btn btn-danger">
+                        <button type="button" id="cancelbtn1" class="btn btn-danger">
                             <i class="fa-solid fa-circle-xmark"></i> 취소하기</button>
                     </div>
-                    </div><!--buttons-->
-            </form>
-                </div><!--button-->
-                </div><!--normal check-->
+                </div><!--buttons-->
+        </form>
+        </div><!--normal check-->
 
         <div class="card card-body bg-light m-5">
             <h3>실명확인 회원가입</h3>
@@ -166,16 +164,21 @@
                             <div class="col-3">
                                 <input type="text" name="jumin2" id="jumin2"
                                         class="form-control border-warning"></div><!--jumin2-->
-                    </div><!--주민-->
+                    </div><!--jumin-->
+
                        <div class="row">
                             <label class="col-2 col-form-label text-warning text-end">&nbsp;</label>
                            <div class="col-7 mt-2">
                                <div class="form-check">
-                                  <input type="checkbox" name="infoagree" id="infoagree" class="form-check-input">
-                            <label for="infoagree" class="form-check-label text-warning">
-                                        주민등록번호 처리에 동의합니다.</label>
-                                </div>
-                           </div><!--form-->
+                                  <input type="checkbox" name="infoagree" id="infoagree"
+                                         class="form-check-input">
+                             <label for="infoagree" class="form-check-label text-warning">
+                                        주민등록번호 처리에 동의합니다.
+                             </label>
+                           </div>
+                           </div>
+                       </div><!--agree-->
+                       </div><!--form-->
 
                         <div class="col-5">
                             <ul>
@@ -186,26 +189,23 @@
                             신용평가기관을 통한 실명확인용</span>으로만 이용됩니다.</li>
                                     <li>개인정보보호법에 따라 <span class="red">이용 동의</span>를 받습니다.</li>
                             </ul>
-                        </div>
-                </div>
-                        <!--info message-->
+                        </div><!--info message-->
+                </div><!--real info-->
+
 
                     <div class="row">
                         <div class="col text-center">
                             <hr class="w-75 mx-auto">
-                            <button type="button" id="checkbtn1" class="btn btn-primary">
+                            <button type="button" id="checkbtn2" class="btn btn-primary">
                                 <i class="fa-regular fa-circle-check"></i> 확인하기</button>
-                            <button type="button" id="cancelbtn1" class="btn btn-danger">
+                            <button type="button" id="cancelbtn2" class="btn btn-danger">
                                 <i class="fa-solid fa-circle-xmark"></i> 취소하기</button>
                         </div>
                     </div><!--buttons-->
                 </form>
-            </div><!--button-->
-    </div><!--normal check-->
-
-
-    </form>
             </div><!--real check-->
-        </div>
+
+    </div>
+
   </th:block>
 </html>
