@@ -7,13 +7,16 @@
     <insert id="insertMember" parameterType="Member">
         insert into member2
         (userid, passwd, name, email, zipcode, addr1, addr2, phone)
-        values ('#{userid}','#{passwd}','#{name}','#{email}',
-        '#{zipcode}','#{addr1}','#{addr2}','#{phone}')
+        values (#{userid},#{passwd},#{name},#{email},
+        #{zipcode},#{addr1},#{addr2},#{phone})
     </insert>
-
 
     <select id="selectMember" resultType="Member">
         select * from member2
+    </select>
+
+    <select id="findZipcode" resultType="Zipcode">
+        select * from zipcode2013 where dong like #{dong}
     </select>
 
 </mapper>
