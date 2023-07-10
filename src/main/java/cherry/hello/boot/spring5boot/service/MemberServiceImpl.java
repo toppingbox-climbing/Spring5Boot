@@ -61,4 +61,9 @@ import java.util.List;
 
         return json;
     }
+
+    @Override
+    public int checkuid(String uid) {
+        return mdao.selectOneUserid(uid);
+    }
 }
