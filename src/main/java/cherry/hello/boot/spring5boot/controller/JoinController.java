@@ -7,10 +7,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -33,13 +30,13 @@ public class JoinController {
 
     @GetMapping("/checkme")
     public String checkme() {
-        logger.info("mybatis/mapper/checkme 호출!!");
+        logger.info("join/checkme 호출!!");
 
         return "join/checkme";
     }
     @PostMapping("/checkme")
     public String checkmeok(Checkme checkme, HttpSession sess) {
-        logger.info("mybatis/mapper/checkmeok 호출!!");
+        logger.info("join/checkmeok 호출!!");
         // checkme에 보낸 개인정보를 세션에 저장하고
         // joinme로 이동
         String viewPage = "redirect:/join/checkme";
@@ -50,7 +47,6 @@ public class JoinController {
         }
         return viewPage;
     }
-
 
     @GetMapping("/joinme")
     public String joinme() {
@@ -70,17 +66,12 @@ public class JoinController {
         return viewPage;
     }
 
-
-
-
     @GetMapping("/joinok")
     public String joinok() {
         logger.info("mybatis/mapper/joinok 호출!!");
 
         return "join/joinok";
     }
-
-
 
     // 우편번호 검색
     // /join/zipcode?dong=동이름
@@ -93,17 +84,26 @@ public class JoinController {
     @GetMapping("/zipcode")
     @ResponseBody
     public void findzip(String dong, HttpServletResponse res) throws IOException {
-
         // 우편번호 조회결과를 JSON 형식으로 보냄
         // 따라서, 응답유형을 JSON형식으로 지정
         res.setContentType("application/json; charset=utf-8");
         // 검색된 결과를 뷰 없이 바로 응답response으로 출력
         res.getWriter().print(msrv.findzip(dong));
-//return type 은 void, res로 보낼거라서 따로 없음.  리턴값
-
+        //return type 은 void, res로 보낼거라서 따로 없음.  리턴값
+    }
+         //아이디 중복검사
+         // /join/checkuid?dong=아이디
+        // /join/checkuid/아이디
+    @GetMapping("/checkuid/{uid}") //변하는 값을 받을 떄 {} /join/checkuid/아이디 이 형태로 출력. 깔끔.
+    @ResponseBody
+    public void checkuid(@PathVariable String uid, HttpServletResponse res) throws IOException {
+        // 따라서, 응답유형을 JSON형식으로 지정
+        res.setContentType("application/json; charset=utf-8");
+        // 검색된 결과를 뷰 없이 바로 응답response으로 출력
+        res.getWriter().print(msrv.checkuid(uid));
+        //return type 은 void, res로 보낼거라서 따로 없음.  리턴값
     }
 }
 //responsebody 하면 view 없이도 보여줄 수 있다.
 //타임립에 정의해둔 문서를 통해서 보여줄 수 있는 것.
 //joinme에서, checkme에서 입력한 번호를 조인미에서 보여주고자 할 떄 모델에 담아놓고 뷰에서 보여주기
-
