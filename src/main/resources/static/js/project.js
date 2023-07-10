@@ -96,9 +96,9 @@ sendzip?.addEventListener('click', ()=> {
     }
 });
 
-email3.addEventListener('click', () => {
+email3?.addEventListener('click', () => {
     let frm = document.forms.joinfrm;
-    if (email3.value === '직접 입력하기') {
+    if (email3.value === '직접입력하기') {
         frm.email2.readOnly = false;
         frm.email2.value = '';
     } else if (email3.value !== '선택하세요') {
@@ -111,4 +111,51 @@ email3.addEventListener('click', () => {
 dong?.addEventListener('keydown', (e) => { //매개변수 e로 입력된 여러가지 정보 가져올 수 있다.
     if (e.keyCode === 13)    // 엔터키(13)가 입력되면
         e.preventDefault();  // 이벤트 전파 방지
+});
+
+// 비밀번호 확인
+// let frm=document.forms.joinfrm;
+let pwd = document.joinfrm.passwd;
+let repwd = document.joinfrm.repasswd;
+let pwdmsg = document.querySelector("#pwdmsg");
+
+repwd?.addEventListener('blur', () => {
+       let pmsg = '비밀번호가 서로 일치하지 않습니다!!';
+        pwdmsg.className = 'text-danger';
+
+        if(pwd.value === repwd.value){
+            pmsg = '비밀번호가 서로 일치합니다!!';
+            pwdmsg.className= 'text-primary';
+        }
+        pwdmsg.innerText = pmsg;
+});
+
+// 아이디 중복 검사
+let userid = document.joinfrm.userid;
+let checkuid = document.joinfrm.checkuid;
+let uidmsg = document.querySelector("#uidmsg");
+
+const styleCheckuid = (chkuid) => {
+        let umsg = '사용 불가능한 아이디입니다!!';
+        uidmsg.className = 'text-danger';
+        checkuid.value = 'no';
+
+        if(chkuid === '0') {
+            umsg = '사용 가능한 아이디입니다!!';
+            uidmsg.className= 'text-primary';
+            checkuid.value = 'yes';
+        }
+        uidmsg.innerText = umsg;
+    };
+
+userid?.addEventListener('blur', () => {
+    if (userid.value === ''){
+        uidmsg.innerText = '6~16 자의 영문 소문자, 숫자와 특수기호(_)만 사용할 수 있습니다.';
+        uidmsg.className = 'text-warning';
+        checkuid.value = 'no';
+        return;
+    }
+    const url = '/join/checkuid/' + userid.value;
+    fetch(url).then(response => response.text())
+        .then(text =>styleCheckuid(text));
 });
