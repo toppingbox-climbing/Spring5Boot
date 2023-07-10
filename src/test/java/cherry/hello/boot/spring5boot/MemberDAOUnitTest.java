@@ -31,4 +31,14 @@ public class MemberDAOUnitTest {
         System.out.println(results);
         assertNotNull(results);
     }
+
+    @Test
+    @DisplayName("MemberMapper checkUserid Test")
+    void checkUserid() {
+        String uid = "abc123";
+       int result = mdao.selectOneUserid(uid);
+
+        System.out.println(result);
+        assertEquals(result,1);
+    }
 }
