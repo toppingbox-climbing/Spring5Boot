@@ -106,3 +106,9 @@ email3.addEventListener('click', () => {
         frm.email2.value = email3.value;
     }
 });
+
+//우편번호 검색 엔터키 입력 차단
+dong?.addEventListener('keydown', (e) => { //매개변수 e로 입력된 여러가지 정보 가져올 수 있다.
+    if (e.keyCode === 13)    // 엔터키(13)가 입력되면
+        e.preventDefault();  // 이벤트 전파 방지
+});
