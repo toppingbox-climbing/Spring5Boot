@@ -32,7 +32,7 @@ public class MemberServiceUnitTest {
     @DisplayName("MemberService save Test")
     void saveMember() {
 
-        Member m = new Member (null,"","","","","","","","",null);
+        Member m = new Member (null,"","","","","","","","","",null);
 
        boolean result = msrv.saveMember(m);
        System.out.println(result);
@@ -46,5 +46,17 @@ public class MemberServiceUnitTest {
         List<Member> results = msrv.readMember();
         System.out.println(results);
         assertNotNull(results);
+    }
+
+    @Test
+    @DisplayName("MemberService read Test")
+    void readOneMember() {
+        Member m = new Member();
+        m.setUserid("abc123");
+        m.setPasswd("987xyz");
+
+        Member result = msrv.readOneMember(m);
+        System.out.println(result);
+        assertNotNull(result);
     }
 }
