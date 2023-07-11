@@ -107,6 +107,21 @@ public class JoinController {
         res.getWriter().print(msrv.checkuid(uid));
         //return type 은 void, res로 보낼거라서 따로 없음.  리턴값
     }
+
+    // 로그인 처리
+
+    @PostMapping("/login") //모달창 쓰는거라서 따로 GetMapping 필요 없음
+    public String login(Member m, HttpSession sess) {
+        logger.info("login 호출!!");
+        String returnPage = "redirect:/loginfail";
+
+        m = msrv.readOneMember(m);
+        if (m != null) {
+            sess.setAttribute("member", m);
+            returnPage = "redirect:/";
+        }
+        return returnPage;
+    }
 }
 //responsebody 하면 view 없이도 보여줄 수 있다.
 //타임립에 정의해둔 문서를 통해서 보여줄 수 있는 것.
