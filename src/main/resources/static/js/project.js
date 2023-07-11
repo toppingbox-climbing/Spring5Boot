@@ -219,5 +219,10 @@ loginbtn?.addEventListener('click', () => {
         lgfrm.action = '/join/login';
         lgfrm.submit();
     }
+});
 
+//logout
+let lgoutbtn = document.querySelector("#lgoutbtn");
+lgoutbtn?.addEventListener('click', () => {
+   location.href = '/join/logout';
 });
