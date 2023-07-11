@@ -91,7 +91,7 @@ public class JoinController {
         // 우편번호 조회결과를 JSON 형식으로 보냄
         // 따라서, 응답유형을 JSON형식으로 지정
         res.setContentType("application/json; charset=utf-8");
-        // 검색된 결과를 뷰 없이 바로 응답response으로 출력
+        // 검색된 결과를 뷰 없이 바로 응답 response 으로 출력
         res.getWriter().print(msrv.findzip(dong));
         //return type 은 void, res로 보낼거라서 따로 없음.  리턴값
     }
@@ -101,9 +101,9 @@ public class JoinController {
     @GetMapping("/checkuid/{uid}") //변하는 값을 받을 떄 {} /join/checkuid/아이디 이 형태로 출력. 깔끔.
     @ResponseBody
     public void checkuid(@PathVariable String uid, HttpServletResponse res) throws IOException {
-        // 따라서, 응답유형을 JSON형식으로 지정
+        // 따라서, 응답유형을 JSON 형식으로 지정
         res.setContentType("application/json; charset=utf-8");
-        // 검색된 결과를 뷰 없이 바로 응답response으로 출력
+        // 검색된 결과를 뷰 없이 바로 응답 response 으로 출력
         res.getWriter().print(msrv.checkuid(uid));
         //return type 은 void, res로 보낼거라서 따로 없음.  리턴값
     }
@@ -121,6 +121,13 @@ public class JoinController {
             returnPage = "redirect:/";
         }
         return returnPage;
+    }
+
+    @GetMapping("/logout")
+    public String logout(HttpSession sess) {
+        sess.invalidate();
+
+        return "redirect:/";
     }
 }
 //responsebody 하면 view 없이도 보여줄 수 있다.
