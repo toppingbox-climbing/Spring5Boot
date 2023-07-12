@@ -13,6 +13,7 @@ public class BoardDAOImpl implements BoardDAO {
 
     // @Autowired 없이 DI 구현
     final BoardMapper boardMapper;
+
     @Override
     public int insertBoard(Board b) {
 
