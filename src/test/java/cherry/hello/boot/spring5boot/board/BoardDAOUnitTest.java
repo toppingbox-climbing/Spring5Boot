@@ -23,7 +23,9 @@ public class BoardDAOUnitTest {
     @Test
     @DisplayName("BoardDAO insert Test")
     void selectBoard() {
-        List<Board> results = bdao.selectBoard();
+        int cpg=1;
+        int stnum = (cpg-1) * 25;
+        List<Board> results = bdao.selectBoard(stnum);
         assertNotNull(results);
     }
 
