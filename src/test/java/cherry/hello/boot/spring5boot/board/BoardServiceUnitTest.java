@@ -2,6 +2,7 @@ package cherry.hello.boot.spring5boot.board;
 
 import cherry.hello.boot.spring5boot.dao.BoardDAOImpl;
 import cherry.hello.boot.spring5boot.model.Board;
+import cherry.hello.boot.spring5boot.model.Member;
 import cherry.hello.boot.spring5boot.service.BoardService;
 import cherry.hello.boot.spring5boot.service.BoardServiceImpl;
 import org.junit.jupiter.api.DisplayName;
@@ -10,6 +11,7 @@ import org.mybatis.spring.boot.test.autoconfigure.MybatisTest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
 import org.springframework.context.annotation.Import;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -40,4 +42,20 @@ public class BoardServiceUnitTest {
         //System.out.println(result);
         assertNotNull(result);
     }
+
+    @Test
+    @DisplayName("MemberService save Test")
+    @Transactional
+    void saveBoard() {
+        Board b = new Board();
+
+
+            b.setUserid("abc123");
+            b.setTitle("테스트");
+            b.setContents("테스트");
+            b.setIpaddr("127.0.0.1");
+
+            boolean result = bsrv.saveBoard(b);
+            assertEquals(result,true);
+        }
 }
