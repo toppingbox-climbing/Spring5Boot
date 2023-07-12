@@ -1,4 +1,4 @@
-package cherry.hello.boot.spring5boot;
+package cherry.hello.boot.spring5boot.member;
 
 import cherry.hello.boot.spring5boot.dao.MemberDAO;
 import cherry.hello.boot.spring5boot.dao.MemberDAOImpl;

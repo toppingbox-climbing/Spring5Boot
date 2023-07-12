@@ -1,4 +1,4 @@
-package cherry.hello.boot.spring5boot;
+package cherry.hello.boot.spring5boot.member;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
