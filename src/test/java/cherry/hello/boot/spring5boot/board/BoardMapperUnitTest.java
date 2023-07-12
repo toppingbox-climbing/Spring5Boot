@@ -1,9 +1,7 @@
 package cherry.hello.boot.spring5boot.board;
 
 import cherry.hello.boot.spring5boot.model.Board;
-import cherry.hello.boot.spring5boot.model.Member;
 import cherry.hello.boot.spring5boot.mybatis.BoardMapper;
-import cherry.hello.boot.spring5boot.mybatis.MemberMapper;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.mybatis.spring.boot.test.autoconfigure.MybatisTest;
@@ -25,7 +23,10 @@ public class BoardMapperUnitTest {
     @DisplayName("boardMapper select Test")
     void selectBoard() {
 
-        List<Board> results = boardMapper.selectBoard();
+        int cpg = 1;
+        int stnum = (cpg-1) * 25;
+
+        List<Board> results = boardMapper.selectBoard(stnum);
 
         System.out.println(results);
         assertNotNull(results);
