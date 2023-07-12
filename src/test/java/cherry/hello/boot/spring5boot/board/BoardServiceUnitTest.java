@@ -32,4 +32,12 @@ public class BoardServiceUnitTest {
        //System.out.println(result);
        assertNotNull(results);
     }
+    @Test
+    @DisplayName("BoardService readOne Test")
+    void readOneBoard() {
+        String bno = "810";
+        Board result = bsrv.readOneBoard(bno);
+        //System.out.println(result);
+        assertNotNull(result);
+    }
 }
