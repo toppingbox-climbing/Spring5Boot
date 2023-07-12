@@ -226,3 +226,52 @@ let lgoutbtn = document.querySelector("#lgoutbtn");
 lgoutbtn?.addEventListener('click', () => {
    location.href = '/join/logout';
 });
+
+//board view
+let newbdbtn = document.querySelector("#newbdbtn");
+let modbdbtn = document.querySelector("#modbdbtn");
+let rmvbdbtn = document.querySelector("#rmvbdbtn");
+let lstbdbtn = document.querySelector("#lstbdbtn");
+newbdbtn?.addEventListener('click', () => {
+        location.href ='/board/write';
+});
+modbdbtn?.addEventListener('click', () => {
+    if (confirm("정말 수정하시겠어요?")) {
+        alert('아직 미지원 기능입니다!!');
+    }
+});
+rmvbdbtn?.addEventListener('click', () => {
+    if (confirm("정말 삭제하시겠어요?")) {
+        alert('아직 미지원 기능입니다!!');
+    }
+});
+lstbdbtn?.addEventListener('click', () => {
+    location.href='/board/list/1';
+});
+
+
+
+//board list
+
+let newbdbtn = document.querySelector("#newbdbtn");
+let modbdbtn = document.querySelector("#modbdbtn");
+let rmvbdbtn = document.querySelector("#rmvbdbtn");
+let lstbdbtn = document.querySelector("#lstbdbtn");
+newbdbtn?.addEventListener('click', () => {
+    location.href ='/board/write';
+});
+modbdbtn?.addEventListener('click', () => {
+    if (confirm("정말 수정하시겠어요?")) {
+        alert('아직 미지원 기능입니다!!');
+    }
+});
+rmvbdbtn?.addEventListener('click', () => {
+    if (confirm("정말 삭제하시겠어요?")) {
+        alert('아직 미지원 기능입니다!!');
+    }
+});
+lstbdbtn?.addEventListener('click', () => {
+    location.href='/board/list/1';
+});
+
+
