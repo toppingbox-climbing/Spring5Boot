@@ -15,16 +15,19 @@ public class BoardDAOImpl implements BoardDAO {
     final BoardMapper boardMapper;
     @Override
     public int insertBoard(Board b) {
+
         return boardMapper.insertBoard(b);
     }
 
     @Override
     public List<Board> selectBoard(int stnum) {
+
         return boardMapper.selectBoard(stnum);
     }
 
     @Override
     public Board selectOneBoard(String bno) {
-        return null;
+
+        return boardMapper.selectOneBoard(bno);
     }
 }
