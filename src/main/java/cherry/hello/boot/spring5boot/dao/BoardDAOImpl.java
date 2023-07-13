@@ -32,4 +32,10 @@ public class BoardDAOImpl implements BoardDAO {
         boardMapper.updateViewBoard(bno);
         return boardMapper.selectOneBoard(bno);
     }
+
+    @Override
+    public int selectCountBoard() {
+
+        return boardMapper.selectCountBoard();
+    }
 }
