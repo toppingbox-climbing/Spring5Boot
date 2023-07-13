@@ -10,5 +10,7 @@ public interface BoardMapper {
         int insertBoard(Board b);
 List<Board> selectBoard(int stnum);
 Board selectOneBoard(String bno);
+
+int updateViewBoard(String bno);
 }
 
