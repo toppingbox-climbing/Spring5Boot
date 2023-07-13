@@ -49,7 +49,6 @@ public class BoardServiceUnitTest {
     void saveBoard() {
         Board b = new Board();
 
-
             b.setUserid("abc123");
             b.setTitle("테스트");
             b.setContents("테스트");
@@ -58,4 +57,13 @@ public class BoardServiceUnitTest {
             boolean result = bsrv.saveBoard(b);
             assertEquals(result,true);
         }
+
+    @Test
+    @DisplayName("BoardService countPage Test")
+    @Transactional
+    void coundPage() {
+        int result = bsrv.countBoard();
+
+        assertNotNull(result);
+    }
 }
