@@ -6,6 +6,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Map;
 
 @Repository("bdao")
 @RequiredArgsConstructor
@@ -37,5 +38,11 @@ public class BoardDAOImpl implements BoardDAO {
     public int selectCountBoard() {
 
         return boardMapper.selectCountBoard();
+    }
+
+    @Override
+    public List<Board> selectFindBoard(Map<String, Object> params) {
+
+        return boardMapper.selectFindBoard(params);
     }
 }

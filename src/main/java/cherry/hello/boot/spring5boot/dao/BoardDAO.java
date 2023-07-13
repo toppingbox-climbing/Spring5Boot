@@ -4,6 +4,7 @@ package cherry.hello.boot.spring5boot.dao;
 import cherry.hello.boot.spring5boot.model.Board;
 
 import java.util.List;
+import java.util.Map;
 
 public interface BoardDAO {
 
@@ -14,4 +15,5 @@ public interface BoardDAO {
 
     int selectCountBoard();
 
+    List<Board> selectFindBoard(Map<String, Object> params);
 }
