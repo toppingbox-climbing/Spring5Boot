@@ -30,6 +30,11 @@ public class BoardController {
        m.addAttribute("cntpg", bsrv.countBoard());
        m.addAttribute("stpg", ((cpg-1) / 10 ) * 10 +1);
 
+       // 만일, 현재페이지가 총페이지수 보다 크다면
+       // 1페이지로 강제 이동
+       if (cpg > (int)m.getAttribute("cntpg"))
+           return "redirect:/board/list/1";
+
        return "board/list";
    }
     @GetMapping("/view/{bno}")
