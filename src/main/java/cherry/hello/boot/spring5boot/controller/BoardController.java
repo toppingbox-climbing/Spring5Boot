@@ -65,15 +65,17 @@ public class BoardController {
     }
 
 
-    @GetMapping("/find/{cpg}/{findtype}/{findkey}")
+    @GetMapping("/find/{findtype}/{findkey}/{cpg}")
     public String find(Model m, @PathVariable Integer cpg,
                        @PathVariable String findtype, @PathVariable String findkey) {
         logger.info("board/find 호출!!");
 
         m.addAttribute("bds", bsrv.readFindBoard(cpg, findtype, findkey));
         m.addAttribute("cpg", cpg);
-        m.addAttribute("cntpg", bsrv.countBoard());
+        m.addAttribute("cntpg", bsrv.countFindBoard(findtype, findkey));
         m.addAttribute("stpg", ((cpg-1) / 10 ) * 10 +1);
+        m.addAttribute("fkey", findkey);
+        m.addAttribute("ftype", findtype);
 
         // 만일, 현재페이지가 총페이지수 보다 크다면
         // 1페이지로 강제 이동
