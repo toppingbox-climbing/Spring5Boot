@@ -56,3 +56,38 @@ from board2;
 
 -- 외래키 제약 조건이 걸려있으면 참조하는 테이블의 실제 값이랑, 서로 맞춰줘야한다.
 -- 무결성 제약조건 위배하기 때문에
+
+select * from board2
+         where title like '%클라이밍%';
+
+
+-- pds
+create table pds (
+                     pno                int                     auto_increment,
+                     title                varchar(100)       not null,
+                     userid            varchar(18)        not null,
+                     regdate          datetime           default current_timestamp,
+                     thumbs          int                    default 0,
+                     views              int                    default 0,
+                     contents         text                  not null,
+                     ipaddr            varchar(15)        not null,
+                     primary key     (pno)
+);
+
+
+create table pdsattach (
+    pano                int                       auto_increment,
+    pno                  int                        not null,  -- 게시글 번호
+    fname              varchar(200)          not null, -- 유효 아이디 포함 uuid
+    ftype                varchar(3)             not null,
+    fdown              int                         default 0,
+    primary key (pano)
+);
+
+alter table pds
+        add constraint fkpuid
+                foreign key (userid) references member2 (userid);
+
+alter table pdsattach
+    add constraint fkpno
+        foreign key (pno) references pds (pno);
