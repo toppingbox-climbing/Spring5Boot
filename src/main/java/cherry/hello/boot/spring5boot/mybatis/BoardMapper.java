@@ -17,5 +17,7 @@ int updateViewBoard(String bno);
 int selectCountBoard();
 
 List<Board> selectFindBoard(Map<String, Object> params);
+int  countFindBoard(Map<String, Object> params);
+
 }
 

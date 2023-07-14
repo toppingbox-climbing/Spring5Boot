@@ -44,4 +44,18 @@
         order by bno desc limit #{stnum}, 25
     </select>
 
+    <!-- 동적 질의문으로 검색 기능을 구현  2-->
+    <select id="countFindBoard" parameterType="map">
+        select ceil(count(bno) / 25) cntpg from board2
+        <!-- select from ~ -->
+        <if test="findtype != 'titcont'">
+            where ${findtype} like concat('%', #{findkey}, '%')
+        </if>
+
+        <if test="findtype == 'titcont'">
+            where title like concat('%', #{findkey}, '%')
+            or contents like concat('%', #{findkey}, '%')
+        </if>
+
+    </select>
 </mapper>
