@@ -77,7 +77,16 @@ public class BoardServiceUnitTest {
         int cpg = 1;
 
         List<Board> results  = bsrv.readFindBoard(cpg, ftype, fkey);
-
         assertNotNull(results);
+    }
+
+    @Test
+    @DisplayName("boardService countfindBoard Test")
+    void countfindBoard() {
+        String ftype = "title";
+        String fkey = "클라이밍";
+
+        int result  = bsrv.countFindBoard(ftype, fkey);
+        assertNotNull(result);
     }
 }
