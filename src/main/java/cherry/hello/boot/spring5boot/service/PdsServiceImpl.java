@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Required;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.util.List;
 import java.util.Map;
 
 @Service ("psrv")
@@ -35,5 +36,24 @@ final PdsUtils pdsUtils;
         int pacnt = pdao.insertPdsAttach(pa);
 
         return (pacnt > 0) ? true : false;
+    }
+
+    @Override
+    public List<Pds> readPsd(Integer cpg) {
+
+        int stnum = (cpg - 1) * 25;
+        return pdao.selectPds(stnum);
+    }
+
+    @Override
+    public int countPds() {
+        return pdao.selectCountPds();
+
+    }
+
+    @Override
+    public Pds readOnePds(String pno) {
+
+        return pdao.selectOnePds(pno);
     }
 }
