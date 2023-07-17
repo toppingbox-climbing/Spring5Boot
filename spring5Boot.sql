@@ -91,3 +91,16 @@ alter table pds
 alter table pdsattach
     add constraint fkpno
         foreign key (pno) references pds (pno);
+
+-- join
+select * from pds p join pdsattach pa
+                         using (pno) where p.pno = '5';
+
+
+-- view (가상테이블)
+create view ppa
+as
+select * from pds p join pdsattach pa
+                         using (pno);
+
+select * from ppa where pno = '5';
