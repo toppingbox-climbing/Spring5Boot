@@ -104,3 +104,48 @@ select * from pds p join pdsattach pa
                          using (pno);
 
 select * from ppa where pno = '5';
+
+
+-- comments
+create table pdscomments (
+    cno             int             auto_increment,
+    comments        mediumtext      not null,
+    userid          varchar(18)     not null,
+    regdate         datetime        default current_timestamp,
+    pno             int             not null,
+    ref             int             not null,
+    primary key (cno)
+);
+
+
+alter table pdscomments
+    add constraint fkrefcno
+        foreign key (ref) references pdscomments(cno);
+
+
+alter table pdscomments
+    add constraint fkpnopno
+        foreign key (pno) references pds(pno);
+
+
+
+insert into pdscomments (userid, comments, ref, pno)
+values ('abc123','댓글1','1','5');
+
+insert into pdscomments (userid, comments, ref, pno)
+values ('abc123','댓글2','2','5');
+
+insert into pdscomments (userid, comments, ref, pno)
+values ('abc123','댓글3','3','5');
+
+
+insert into pdscomments (userid, comments, ref, pno)
+values ('abc123','대댓글1','2','5');
+
+insert into pdscomments (userid, comments, ref, pno)
+values ('abc123','대댓글4','5','5');
+
+select * from pdscomments;
+
+select * from pdscomments where pno = 5
+order by ref;
