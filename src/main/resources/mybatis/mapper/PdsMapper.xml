@@ -59,44 +59,54 @@
         select * from pdsattach where pno = #{pno}
     </select>
 
-   <!-- <update id="updateViewPds">
-        update Pds2 set views = views + 1
-        where bno = #{bno}
-    </update>
+    <insert id="insertPdsComment" parameterType="PdsComment">
+        insert into pdscomments (userid, comments, ref, pno)
+        values (#{userid}, #{comment}, #{ref}, #{pno})
+    </insert>
 
-    <select id="selectCountPds">
-        select ceil(count(bno) / 25) cntpg from Pds2
+    <select id="selectPdsComment" resultType="PdsComment">
+        select * from pdscommenets where pno = #{pno}
+        order by ref
     </select>
 
-    &lt;!&ndash; 동적질의문으로 검색 기능 구현 &ndash;&gt;
-    &lt;!&ndash; 단, 컬럼명이나 테이블명에는 #{}가 아닌 ${}를 사용!!&ndash;&gt;
-    <select id="selectFindPds" parameterType="map" resultType="Pds">
-        select bno, title, userid, regdate, thumbs, views from Pds2
+    <!-- <update id="updateViewPds">
+         update Pds2 set views = views + 1
+         where bno = #{bno}
+     </update>
 
-        <if test="findtype != 'titcont'">
-            where ${findtype} like concat('%', #{findkey}, '%')
-        </if>
+     <select id="selectCountPds">
+         select ceil(count(bno) / 25) cntpg from Pds2
+     </select>
 
-        <if test="findtype == 'titcont'">
-            where title like concat('%', #{findkey}, '%')
-            or contents like concat('%', #{findkey}, '%')
-        </if>
+     &lt;!&ndash; 동적질의문으로 검색 기능 구현 &ndash;&gt;
+     &lt;!&ndash; 단, 컬럼명이나 테이블명에는 #{}가 아닌 ${}를 사용!!&ndash;&gt;
+     <select id="selectFindPds" parameterType="map" resultType="Pds">
+         select bno, title, userid, regdate, thumbs, views from Pds2
 
-        order by bno desc limit #{stnum}, 25
-    </select>
+         <if test="findtype != 'titcont'">
+             where ${findtype} like concat('%', #{findkey}, '%')
+         </if>
 
-    &lt;!&ndash; 동적질의문으로 검색 기능 구현 2 &ndash;&gt;
-    <select id="countFindPds" parameterType="map">
-        select ceil(count(bno) / 25) cntfpg from Pds2
+         <if test="findtype == 'titcont'">
+             where title like concat('%', #{findkey}, '%')
+             or contents like concat('%', #{findkey}, '%')
+         </if>
 
-        <if test="findtype != 'titcont'">
-            where ${findtype} like concat('%', #{findkey}, '%')
-        </if>
+         order by bno desc limit #{stnum}, 25
+     </select>
 
-        <if test="findtype == 'titcont'">
-            where title like concat('%', #{findkey}, '%')
-            or contents like concat('%', #{findkey}, '%')
-        </if>
-    </select>
-    -->
+     &lt;!&ndash; 동적질의문으로 검색 기능 구현 2 &ndash;&gt;
+     <select id="countFindPds" parameterType="map">
+         select ceil(count(bno) / 25) cntfpg from Pds2
+
+         <if test="findtype != 'titcont'">
+             where ${findtype} like concat('%', #{findkey}, '%')
+         </if>
+
+         <if test="findtype == 'titcont'">
+             where title like concat('%', #{findkey}, '%')
+             or contents like concat('%', #{findkey}, '%')
+         </if>
+     </select>
+     -->
 </mapper>
