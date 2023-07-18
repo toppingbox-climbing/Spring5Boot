@@ -65,7 +65,7 @@
                                 <a th:href="|/pds/view/${p.pno}|"
                                      th:text="${p.title}">클라이밍 가고싶다.</a></td>
                         <td th:text="${p.userid}">운영자</td>
-                        <td th:text="${#strings.substring(bd.regdate,0,10)}">2023-05-01</td>
+                        <td th:text="${#strings.substring(p.regdate,0,10)}">2023-05-01</td>
                         <td th:text="${p.thumbs}">567</td>
                         <td th:text="${p.views}">1234</td>
                     </tr>

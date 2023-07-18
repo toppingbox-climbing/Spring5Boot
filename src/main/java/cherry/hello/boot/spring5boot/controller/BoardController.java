@@ -67,7 +67,7 @@ public class BoardController {
 
     @GetMapping("/find/{findtype}/{findkey}/{cpg}")
     public String find(Model m, @PathVariable Integer cpg,
-                       @PathVariable String findtype, @PathVariable String findkey) {
+                       @PathVariable String findtype, @PathVariable String findkey){
         logger.info("board/find 호출!!");
 
         m.addAttribute("bds", bsrv.readFindBoard(cpg, findtype, findkey));

@@ -36,6 +36,7 @@ public class BoardServiceImpl implements BoardService {
 
     @Override
     public int countBoard() {
+
         return bdao.selectCountBoard();
     }
 
@@ -57,4 +58,3 @@ public class BoardServiceImpl implements BoardService {
         return bdao.countFindBoard(params);
     }
 }
-
