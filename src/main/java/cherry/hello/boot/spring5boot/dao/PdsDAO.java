@@ -16,4 +16,6 @@ public interface PdsDAO {
     int selectCountPds();
 
     Pds selectOnePds(String pno);
+
+    PdsAttach selectOnePdsAttach(String pno);
 }
