@@ -22,8 +22,11 @@ public interface PdsMapper {
 
         int selectCountPds();
 
+        PdsAttach selectOnePdsAttach(String pno);
+
         Pds selectOnePds(String pno);
-//
+
+        //
 //int updateViewpds(String bno);
 //
 

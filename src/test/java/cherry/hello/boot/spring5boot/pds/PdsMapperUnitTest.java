@@ -2,6 +2,7 @@ package cherry.hello.boot.spring5boot.pds;
 
 import cherry.hello.boot.spring5boot.model.Board;
 import cherry.hello.boot.spring5boot.model.Pds;
+import cherry.hello.boot.spring5boot.model.PdsAttach;
 import cherry.hello.boot.spring5boot.mybatis.PdsMapper;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -36,5 +37,16 @@ public class PdsMapperUnitTest {
         int result = pdsMapper.lastPdsPno();
 
          assertNotNull(result);
+    }
+
+    @Test
+    @DisplayName("PdsMapper selectOnePA Test")
+
+    void selectOnePA() {
+        String pno = "5";
+
+        PdsAttach result = pdsMapper.selectOnePdsAttach(pno);
+
+        assertNotNull(result);
     }
 }
