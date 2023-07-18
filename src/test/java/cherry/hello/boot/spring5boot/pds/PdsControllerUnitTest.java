@@ -46,4 +46,13 @@ public class PdsControllerUnitTest {
                         ).andExpect(status().is3xxRedirection())
                         .andDo(print());
     }
+
+
+    @Test
+    @DisplayName("PdsController download Test")
+    void download() throws Exception {
+        mvc.perform(get("/pds/down/4"))
+                .andExpect(status().is(200))
+                .andDo(print());
+    }
 }
